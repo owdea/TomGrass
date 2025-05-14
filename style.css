@@ -1,10 +1,13 @@
-/**
- * /*!
- * Theme Name:      	Shoptimizer-child
- * Author:          	Owdea
- * Description:     	Shoptimizer child
- * Version:         	0.0.1
-**/
+/*
+ Theme Name:   Shoptimizer Child
+ Theme URI:    https://example.com/
+ Description:  Child theme pro Shoptimizer
+ Author:       Owdea
+ Author URI:   https://github.com/owdea
+ Template:     shoptimizer
+ Version:      0.0.1
+ Text Domain:  shoptimizer-child
+*/
 .shoptimizer-primary-navigation .shoptimizer-myaccount {
     width: 40px;
     a {
