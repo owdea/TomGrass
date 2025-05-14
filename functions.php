@@ -134,3 +134,19 @@ function my_custom_header_cart() {
 
     <?php
 }
+
+
+function theme_update_checker() {
+    include 'plugin-update-checker/plugin-update-checker.php';
+    $my_update_checker = YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
+        'https://github.com/owdea/TomGrass',
+        __FILE__,
+        'shoptimizer-child'
+    );
+
+    $my_update_checker->setBranch( 'main' );
+
+    $my_update_checker->setAuthentication('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');
+}
+
+add_action( 'after_setup_theme', 'theme_update_checker' );
