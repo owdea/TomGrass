@@ -46,6 +46,7 @@
             color: white;
         }
     }
+
     .site .header-button:hover {
         color: #0B1E2F;
     }
@@ -133,6 +134,12 @@
     }
     .col-full-nav .shoptimizer-primary-navigation .my-header-cart-wrapper {
         display: none;
+    }
+    .site .header-button:hover {
+        background-color: #0B1E2F;
+        a {
+            color: white;
+        }
     }
 }
 
