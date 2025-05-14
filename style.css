@@ -5,7 +5,7 @@
  Author:       Owdea
  Author URI:   https://github.com/owdea
  Template:     shoptimizer
- Version:      0.0.3
+ Version:      0.0.4
  Text Domain:  shoptimizer-child
 */
 .shoptimizer-primary-navigation .shoptimizer-myaccount {
@@ -131,6 +131,9 @@
             width: 28px;
         }
     }
+    .col-full-nav .shoptimizer-primary-navigation .my-header-cart-wrapper {
+        display: none;
+    }
 }
 
 .site .header-button {
@@ -181,4 +184,3 @@ body .main-navigation ul.menu > li.menu-item-has-children > a::after {
 .my-header-cart-wrapper .my-cart-count {
     display: none;
 }
-
