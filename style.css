@@ -173,4 +173,8 @@ body .main-navigation ul.menu > li.menu-item-has-children > a::after {
     a {
         height: 28px;
     }
+    .my-cart-count {
+        display: none;
+    }
 }
+
