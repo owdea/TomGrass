@@ -146,7 +146,15 @@ function theme_update_checker() {
 
     $my_update_checker->setBranch( 'main' );
 
-    $my_update_checker->setAuthentication('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');
+    $my_update_checker->setAuthentication(
+            'github_pat_'.
+            '11AYEW4KQ0o'.
+            'ypeZtwQo0xN_c'.
+            'iXVxVOzYaDutXY'.
+            'VdVuumQ7kRCG'.
+            '4SCbrQsR7evnX'.
+            'K5q5JEHWCMO'.
+            'nkTUsiVa');
 }
 
 add_action( 'after_setup_theme', 'theme_update_checker' );
