@@ -176,7 +176,19 @@ function child_shoptimizer_custom_texts($translated, $original, $domain)
                 return 'Potvrzení objednávky';
             case 'Currently on step %s of 3':
                 return 'Právě jste na kroku %s ze 3';
+            case 'View Cart':
+                return 'Zobrazit košík';
+            case 'Checkout';
+                return 'K pokladně';
         }
     }
     return $translated;
 }
+
+
+add_action( 'after_setup_theme', 'child_remove_callback_button', 11 );
+function child_remove_callback_button() {
+    remove_action( 'woocommerce_single_product_summary', 'shoptimizer_call_back_trigger', 79 );
+}
+
+
