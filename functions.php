@@ -180,6 +180,8 @@ function child_shoptimizer_custom_texts($translated, $original, $domain)
                 return 'Zobrazit košík';
             case 'Checkout';
                 return 'K pokladně';
+            case 'Your Cart':
+                return 'Váš košík';
         }
     }
     return $translated;
@@ -192,3 +194,53 @@ function child_remove_callback_button() {
 }
 
 
+add_action( 'after_setup_theme', 'child_remove_shoptimizer_sorting', 20 );
+function child_remove_shoptimizer_sorting() {
+    // před shop-loop
+    remove_action( 'woocommerce_before_shop_loop', 'shoptimizer_woocommerce_catalog_ordering', 10 );
+
+    // za shop-loop
+    remove_action( 'woocommerce_after_shop_loop',  'shoptimizer_woocommerce_catalog_ordering', 10 );
+}
+
+
+add_action( 'after_setup_theme', 'child_remove_shoptimizer_prevnext', 20 );
+function child_remove_shoptimizer_prevnext() {
+    // odstraní previous/next navigaci na stránce produktu
+    remove_action( 'woocommerce_single_product_summary', 'shoptimizer_prev_next_product', 0 );
+}
+
+add_action( 'after_setup_theme', 'child_remove_shoptimizer_empty_wrappers', 20 );
+function child_remove_shoptimizer_empty_wrappers() {
+    // Odebere wrapper otevírající <div class="shoptimizer-sorting sorting-end">
+    remove_action( 'woocommerce_after_shop_loop', 'shoptimizer_sorting_wrapper_end',   9 );
+    // Odebere poslední wrapper_close, který tu jednu </div> zavírá
+    remove_action( 'woocommerce_after_shop_loop', 'shoptimizer_sorting_wrapper_close', 31 );
+}
+
+add_action( 'after_setup_theme', 'child_remove_after_product_count', 20 );
+function child_remove_after_product_count() {
+    // globálně odebere <p class="woocommerce-result-count">…</p> za smyčkou produktů
+    remove_action( 'woocommerce_after_shop_loop', 'woocommerce_result_count', 20 );
+}
+
+// pokud chceš odebrat jen na archivech kategorií:
+add_action( 'wp', 'child_remove_category_after_product_count' );
+function child_remove_category_after_product_count() {
+    if ( is_product_category() ) {
+        remove_action( 'woocommerce_after_shop_loop', 'woocommerce_result_count', 20 );
+    }
+}
+
+
+
+function thenga_remove_filtering() {
+    remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 10 );
+    remove_action( 'woocommerce_after_shop_loop', 'woocommerce_catalog_ordering', 10 );
+}
+add_action( 'init', 'thenga_remove_filtering' );
+
+add_action( 'after_setup_theme', 'child_remove_woocommerce_result_count', 20 );
+function child_remove_woocommerce_result_count() {
+    remove_action( 'woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+}
