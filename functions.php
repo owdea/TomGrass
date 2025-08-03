@@ -158,3 +158,25 @@ function theme_update_checker() {
 }
 
 add_action( 'after_setup_theme', 'theme_update_checker' );
+
+
+
+
+
+add_filter('gettext', 'child_shoptimizer_custom_texts', 20, 3);
+function child_shoptimizer_custom_texts($translated, $original, $domain)
+{
+    if ('shoptimizer' === $domain) {
+        switch ($original) {
+            case 'Shopping Cart':
+                return 'Košík';
+            case 'Shipping and Checkout':
+                return 'Doprava a platba';
+            case 'Confirmation':
+                return 'Potvrzení objednávky';
+            case 'Currently on step %s of 3':
+                return 'Právě jste na kroku %s ze 3';
+        }
+    }
+    return $translated;
+}

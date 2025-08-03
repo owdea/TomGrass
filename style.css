@@ -14,6 +14,9 @@
         color: red;
     }
 }
+.col-full.topbar-wrapper {
+    border-bottom: 0;
+}
 @media (min-width: 993px) {
     .col-full {
         padding: 0 16px;
